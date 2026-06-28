@@ -1,0 +1,66 @@
+╔══════════════════════════════════════════════════════════════╗
+║   KIROTUX — Hyprland keybindings   (SUPER = Mod / Windows key)  ║
+╚══════════════════════════════════════════════════════════════╝
+
+APPS & SESSION
+  SUPER + Return ............ terminal (alacritty)
+  SUPER + T ................. terminal
+  SUPER + Shift + Return .... file manager (thunar)
+  SUPER + E ................. editor (code)
+  SUPER + F1 ................ browser (firefox)
+  SUPER + D ................. app launcher (rofi drun)
+  SUPER + Shift + D ......... run launcher (rofi run)
+  SUPER + V ................. audio mixer (pavucontrol)
+  SUPER + O ................. colour picker (hyprpicker)
+  SUPER + X ................. logout dialog
+  SUPER + Shift + E ......... logout dialog
+  SUPER + Shift + X ......... power menu
+  SUPER + Ctrl + S .......... show these keybindings
+  Ctrl + Alt + K ............ lock screen (hyprlock)
+  SUPER + Shift + R ......... reload Hyprland config
+
+WINDOWS
+  SUPER + Q / Shift + Q ..... close window
+  SUPER + Shift + Space ..... toggle floating
+  SUPER + F ................. fullscreen
+  SUPER + P ................. pseudo-tile
+  SUPER + J ................. toggle split direction
+  SUPER + G ................. toggle group
+
+MASTER LAYOUT
+  SUPER + I ................. add to master
+  SUPER + Ctrl + Return ..... swap with master
+
+FOCUS  (arrows)
+  SUPER + ←/→/↑/↓ ........... move focus
+
+MOVE / SWAP WINDOW
+  SUPER + Shift + ←/→/↑/↓ ... swap window in direction
+
+RESIZE
+  SUPER + Shift + H/L ....... shrink / grow width
+  SUPER + Shift + K/J ....... shrink / grow height
+
+WORKSPACES
+  SUPER + 1..0 .............. switch to workspace 1..10
+  SUPER + Ctrl + 1..0 ....... move window to workspace (follow)
+  SUPER + Shift + 1..0 ...... move window to workspace (silent)
+  SUPER + . / , ............. next / previous workspace
+  SUPER + Tab / Shift+Tab ... next / previous workspace
+  SUPER + scroll ............ cycle workspaces
+
+SCRATCHPAD
+  SUPER + U ................. toggle special workspace
+  SUPER + Shift + U ......... move window to scratchpad
+
+MOUSE
+  SUPER + Left-drag ......... move window
+  SUPER + Right-drag ........ resize window
+
+MEDIA / BRIGHTNESS  (function keys)
+  XF86Audio* ................ volume / play / next / prev
+  XF86MonBrightness* ........ brightness up / down
+
+SCREENSHOTS
+  Print .................... region screenshot → clipboard
+  SUPER + Print ............ full screen → clipboard
