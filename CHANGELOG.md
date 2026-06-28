@@ -3,6 +3,17 @@
 ## 2026.06.28
 
 ### What Changed
+- **Ship Kiro's fastfetch config in the skel.** Added `etc/skel/.config/fastfetch/`
+  (`config.jsonc` + `kiro-color-24.txt`, sourced from `kiro-dot-files`). The Hyprland edition
+  previously had no fastfetch config — a fresh install showed default fastfetch, and it was
+  missing from `hyprland-tweak-tool`'s "Restore Kiro Hyprland" (which restores the configs in
+  `/etc/skel/.config`). Now fastfetch is part of the Kiro Hyprland config set on install and is
+  restorable. **Rebuild `kiro-hyprland`.**
+- **`CTRL + ALT + H` launches `hyprland-tweak-tool`.** Added to the alphabetical CTRL+ALT
+  app-launcher block in `hyprland.lua` (between G/Chromium and P/Package manager), mirroring
+  the existing `CTRL + ALT + E` → `archlinux-tweak-tool` shortcut.
+- **`CTRL + ALT + S` now launches `fish-tweak-tool`** (was Spotify). Repurposed the S slot
+  in the same launcher block.
 - **Ship a pristine golden copy of the config at `/usr/share/kiro/hyprland/`** (PKGBUILD
   pkgrel 8 → 9). In addition to `/etc/skel`, the package now installs a read-only copy of
   the whole desktop config (hypr/, waybar/, mako/, gtk-3.0/, gtk-4.0/) to a stable system
