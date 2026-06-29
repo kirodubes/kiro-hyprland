@@ -94,7 +94,7 @@ hl.config({
     -- Inner glow on the focused window (0.55+) — Kiro blue accent; off when unfocused.
     glow = {
       enabled = true,
-      range = 8,
+      range = 3,
       render_power = 3,
       color = "rgba(7aa2f7cc)",
       color_inactive = "rgba(00000000)",
