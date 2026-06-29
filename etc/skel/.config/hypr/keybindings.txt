@@ -105,7 +105,7 @@
   ctrl + alt + K            archlinux-logout (logout menu)
   ctrl + alt + L            archlinux-logout --settings (logout settings)
   super + shift + X         kiro-powermenu (power menu)
-  ctrl + alt + R            archlinux-betterlockscreen (lock screen)
+  ctrl + alt + R            archlinux-betterlockscreen (set lockscreen wallpaper)
   super + Escape            hyprctl kill (kill mode)
   super + ctrl + S          show keybindings
   super + shift + R         reload Hyprland config

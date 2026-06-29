@@ -29,11 +29,12 @@
 - Both `etc/skel/.config/hypr/hyprland.lua` and the sibling `keybindings.txt` were updated
   together so the viewer never drifts from the live binds. A duplicate-key scan confirms no
   two binds share a chord.
-- **Known gap (accepted):** `CTRL + ALT + K` moving to logout leaves `hyprlock` unbound and
-  the only lock chord (`CTRL + ALT + R`) is `archlinux-betterlockscreen`, which is i3lock/X11
-  and won't run on Wayland — so there is currently **no working Wayland lock binding**. The
-  `local lock = "hyprlock"` variable is left in place (now unused) for wiring a real lock
-  later.
+- **Known gap (RESOLVED later same day, see next section):** `CTRL + ALT + K` moving to logout
+  left `hyprlock` unbound. The fix routes locking through `archlinux-logout` (its Lock button
+  now resolves to `hyprlock` on Wayland) and adds `hyprlock.conf`. `CTRL + ALT + R` is the
+  betterlockscreen wallpaper picker (a GTK4 app that *does* run on Wayland — it only generates
+  the blur cache), not a locker; its label was corrected. The `local lock = "hyprlock"` variable
+  remains unused — kept in case a direct one-key lock chord is wanted later.
 - `--settings` is undocumented in `archlinux-logout --help-all` but verified working on the
   live app (opens "ArchLinux Logout Settings").
 
@@ -42,6 +43,29 @@
 - `etc/skel/.config/hypr/keybindings.txt`
 - `etc/skel/.config/hypr/keybindings.html` (generated)
 - `etc/skel/.config/hypr/keybindings.pdf` (generated)
+
+### Wayland lock screen — hyprlock wired to the betterlockscreen wallpaper
+
+**What Changed.** Added `etc/skel/.config/hypr/hyprlock.conf` so the Hyprland lock screen shows
+the wallpaper the user picks in `archlinux-betterlockscreen`, and corrected two mislabeled
+"Lock screen" entries. This resolves the "no working Wayland lock binding" gap noted above.
+
+**Technical Details.**
+- `hyprlock.conf` background `path = $HOME/.cache/betterlockscreen/current/lock_dimblur.png` —
+  the dim+blur image `betterlockscreen -u` caches (closest match to the old `betterlockscreen -l
+  dim` look). hyprlock does not expand `~`, hence `$HOME`. If the cache is absent the block
+  falls back to a solid dark color, so the screen still locks. Clock/date/greeting/password
+  styled in JetBrainsMono Nerd Font to match the rice.
+- The lock is driven by `archlinux-logout` (`CTRL + ALT + K`), whose Lock button now resolves to
+  `hyprlock` on Wayland (see archlinux-logout-gtk4 CHANGELOG, same date).
+- Relabeled `CTRL + ALT + R` from "Lock screen" to "Lockscreen wallpaper" in both
+  `hyprland.lua` and `keybindings.txt` — it opens the betterlockscreen picker, it does not lock.
+- `hyprlock` is already a declared PKGBUILD dependency; no dependency change needed.
+
+**Files Modified.**
+- `etc/skel/.config/hypr/hyprlock.conf` (new)
+- `etc/skel/.config/hypr/hyprland.lua`
+- `etc/skel/.config/hypr/keybindings.txt`
 
 ## 2026.06.28
 
