@@ -3,6 +3,13 @@
 ## 2026.06.29
 
 ### What Changed
+- **`SUPER + CTRL + S` now opens the kiro-keybindings GUI cheatsheet.** It launched
+  `alacritty -e less ~/.config/hypr/keybindings.txt` — a plain text viewer — while every other
+  Kiro edition binds that combo to the searchable `kiro-keybindings` PySide6/QML app. Hyprland was
+  the lone holdout. Repointed the `keybindings` launch string to `kiro-keybindings` and declared
+  the package as a dependency so it's actually present on the edition (it was neither a depend nor
+  in the ISO package list). Pairs with the kiro-keybindings fix that added Hyprland to its
+  WM-detection table (it previously said "no keybindings.txt found for this environment").
 - **Aligned the Hyprland keybindings to the ohmychadwm reference and rebuilt the cheat sheet.**
   The `keybindings.txt` viewer (shown by `SUPER + CTRL + S`) was missing the entire CTRL+ALT
   app-launcher block and the `SUPER + F2..F12` app keys — "all the Kiro apps" were absent. It

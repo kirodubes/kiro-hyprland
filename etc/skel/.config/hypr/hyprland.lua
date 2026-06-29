@@ -24,7 +24,7 @@ local menu     = "rofi -show drun"
 local logout   = "archlinux-logout"   -- Kiro logout dialog (archlinux-logout-gtk4), as on the other editions
 local powermenu = "kiro-powermenu"
 local lock     = "hyprlock"
-local keybindings = "alacritty --class keybindings -e less ~/.config/hypr/keybindings.txt"
+local keybindings = "kiro-keybindings"   -- searchable PySide6/QML cheatsheet (auto-detects Hyprland)
 
 -- ── Environment ──────────────────────────────────────────────────────────
 -- Force Wayland across toolkits; advertise the session to portals/screenshare.
