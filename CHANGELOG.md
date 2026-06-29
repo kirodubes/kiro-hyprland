@@ -1,5 +1,40 @@
 # Changelog
 
+## 2026.06.29
+
+### What Changed
+- **Aligned the Hyprland keybindings to the ohmychadwm reference and rebuilt the cheat sheet.**
+  The `keybindings.txt` viewer (shown by `SUPER + CTRL + S`) was missing the entire CTRL+ALT
+  app-launcher block and the `SUPER + F2..F12` app keys — "all the Kiro apps" were absent. It
+  now mirrors `hyprland.lua` in full.
+- **New CTRL+ALT app launchers** ported from ohmychadwm's `sxhkdrc`/`keybindings.txt`:
+  `A`/`Q` → alacritty-tweak-tool, `D` → obs, `I` → kiro-iso-builder,
+  `L` → `archlinux-logout --settings`, `M` → `mintstick -m iso`, `O` → opera,
+  `W`/`Z` → fastfetch-tweak-tool. Plus `SUPER + Space` → app launcher and
+  `ALT + R` → theme selector.
+- **Aligned divergent binds to the reference:** `CTRL + ALT + A` → alacritty-tweak-tool (was
+  xfce4-appfinder), `CTRL + ALT + R` → archlinux-betterlockscreen (was theme selector),
+  `CTRL + ALT + B` → brave (was thunar), `CTRL + ALT + C` → chromium (was catfish),
+  `CTRL + ALT + K` → archlinux-logout (was hyprlock), `SUPER + F9` → virt-manager (was
+  lollypop). `SUPER + F1` deliberately kept on firefox (reference uses vivaldi).
+- **Deliberately dropped** the reference's `update-system` binds (not used in KIROTUX).
+
+### Technical Details
+- Both `etc/skel/.config/hypr/hyprland.lua` and the sibling `keybindings.txt` were updated
+  together so the viewer never drifts from the live binds. A duplicate-key scan confirms no
+  two binds share a chord.
+- **Known gap (accepted):** `CTRL + ALT + K` moving to logout leaves `hyprlock` unbound and
+  the only lock chord (`CTRL + ALT + R`) is `archlinux-betterlockscreen`, which is i3lock/X11
+  and won't run on Wayland — so there is currently **no working Wayland lock binding**. The
+  `local lock = "hyprlock"` variable is left in place (now unused) for wiring a real lock
+  later.
+- `--settings` is undocumented in `archlinux-logout --help-all` but verified working on the
+  live app (opens "ArchLinux Logout Settings").
+
+### Files Modified
+- `etc/skel/.config/hypr/hyprland.lua`
+- `etc/skel/.config/hypr/keybindings.txt`
+
 ## 2026.06.28
 
 ### What Changed
