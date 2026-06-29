@@ -1,105 +1,111 @@
-╔══════════════════════════════════════════════════════════════╗
-║   KIROTUX — Hyprland keybindings   (SUPER = Mod / Windows key)  ║
-╚══════════════════════════════════════════════════════════════╝
+###############################################################################
+#  KEYBINDINGS — Hyprland
+#  Source: ~/.config/hypr/hyprland.lua
+#  Generated: 2026.06.29 by /kiro-create-keybindings — DO NOT EDIT BY HAND
+###############################################################################
 
-APPS & SESSION
-  SUPER + Return ............ terminal (alacritty)
-  SUPER + T ................. terminal
-  SUPER + Shift + Return .... file manager (thunar)
-  SUPER + E ................. editor (code)
-  SUPER + D / Space ........ app launcher (rofi drun)
-  SUPER + Shift + D ......... run launcher (rofi run)
-  SUPER + R / Alt + R ...... theme selector (rofi-theme-selector)
-  SUPER + V ................. audio mixer (pavucontrol)
-  SUPER + O ................. colour picker (hyprpicker)
-  SUPER + X ................. logout dialog
-  SUPER + Shift + E ......... logout dialog
-  SUPER + Shift + X ......... power menu
-  SUPER + Escape ........... kill mode (click a window to kill)
-  SUPER + Ctrl + S .......... show these keybindings
-  Ctrl + Alt + K ............ logout dialog (archlinux-logout)
-  SUPER + Shift + R ......... reload Hyprland config
+── 1. Applications & Launchers ───────────────────────────────────────────────
+  super + Return            alacritty (terminal)
+  super + T                 alacritty (terminal)
+  super + shift + Return    thunar (file manager)
+  super + E                 code (editor)
+  super + D                 rofi drun (app launcher)
+  super + Space             rofi drun (app launcher)
+  super + shift + D         rofi run (run launcher)
+  super + R                 rofi-theme-selector
+  alt + R                   rofi-theme-selector
+  super + V                 pavucontrol (audio mixer)
+  super + O                 hyprpicker -a (colour picker)
+  ctrl + alt + A            alacritty-tweak-tool
+  ctrl + alt + Q            alacritty-tweak-tool
+  ctrl + alt + B            brave
+  ctrl + alt + C            chromium
+  ctrl + alt + G            chromium
+  ctrl + alt + D            obs (OBS Studio)
+  ctrl + alt + E            archlinux-tweak-tool (ATT)
+  ctrl + alt + F            firefox
+  ctrl + alt + H            hyprland-tweak-tool
+  ctrl + alt + I            kiro-iso-builder
+  ctrl + alt + M            mintstick (USB image writer)
+  ctrl + alt + O            opera
+  ctrl + alt + P            pamac-manager (package manager)
+  ctrl + alt + S            fish-tweak-tool
+  ctrl + alt + U            pavucontrol (audio mixer)
+  ctrl + alt + V            vivaldi
+  ctrl + alt + W            fastfetch-tweak-tool
+  ctrl + alt + Z            fastfetch-tweak-tool
+  ctrl + alt + Return       alacritty (terminal)
+  ctrl + alt + T            alacritty (terminal)
+  ctrl + alt + End          btop (system monitor)
+  ctrl + shift + Escape     btop (system monitor)
+  super + F1                firefox
+  super + F2                code (editor)
+  super + F3                inkscape
+  super + F4                gimp
+  super + F5                meld
+  super + F6                vlc
+  super + F7                virtualbox
+  super + F8                thunar (file manager)
+  super + F9                virt-manager
+  super + F10               spotify
+  super + F11               rofi drun (app launcher)
+  super + F12               rofi drun (app launcher)
 
-KIRO APPS  (Ctrl + Alt)
-  Ctrl + Alt + A / Q ....... Alacritty Tweak Tool
-  Ctrl + Alt + B ........... brave
-  Ctrl + Alt + C ........... chromium
-  Ctrl + Alt + D ........... OBS Studio
-  Ctrl + Alt + E ........... Arch Linux Tweak Tool (ATT)
-  Ctrl + Alt + H ........... Hyprland Tweak Tool
-  Ctrl + Alt + I ........... Kiro ISO builder
-  Ctrl + Alt + L ........... logout settings (archlinux-logout --settings)
-  Ctrl + Alt + S ........... Fish Tweak Tool
-  Ctrl + Alt + W / Z ....... Fastfetch Tweak Tool
-  Ctrl + Alt + P ........... package manager (pamac)
-  Ctrl + Alt + M ........... USB image writer (mintstick)
-  Ctrl + Alt + R ........... lock screen (archlinux-betterlockscreen)
-  Ctrl + Alt + U ........... audio mixer (pavucontrol)
-  Ctrl + Alt + F ........... firefox
-  Ctrl + Alt + G ........... chromium
-  Ctrl + Alt + O ........... opera
-  Ctrl + Alt + V ........... vivaldi
-  Ctrl + Alt + Return / T .. terminal (alacritty)
-  Ctrl + Alt + End ......... system monitor (btop)
-  Ctrl + Shift + Escape .... system monitor (btop)
+── 2. Window Management ───────────────────────────────────────────────────────
+  super + Q                 close focused window
+  super + shift + Q         close focused window
+  super + shift + Space     toggle floating
+  super + F                 toggle fullscreen
+  super + alt + F           maximize
+  super + P                 pseudo-tile
+  super + G                 toggle group
+  super + Left/Right/Up/Down       focus window in direction
+  super + shift + Left/Right/Up/Down   swap window in direction
+  super + ctrl + Left/Right/Up/Down    move window into group in direction
+  super + shift + H         shrink window width
+  super + shift + L         grow window width
+  super + shift + K         shrink window height
+  super + shift + J         grow window height
+  super + Left-drag         move window (mouse)
+  super + Right-drag        resize window (mouse)
 
-APP KEYS  (Super + Function keys)
-  SUPER + F1 ............... firefox
-  SUPER + F2 ............... editor (code)
-  SUPER + F3 ............... inkscape
-  SUPER + F4 ............... gimp
-  SUPER + F5 ............... meld
-  SUPER + F6 ............... vlc
-  SUPER + F7 ............... virtualbox
-  SUPER + F8 ............... file manager (thunar)
-  SUPER + F9 ............... virt-manager
-  SUPER + F10 .............. spotify
-  SUPER + F11 / F12 ........ app launcher (rofi drun)
+── 3. Workspaces / Tags / Groups ─────────────────────────────────────────────
+  super + 1..0              switch to workspace 1–10
+  super + ctrl + 1..0       move window to workspace 1–10 (follow)
+  super + shift + 1..0      send window to workspace 1–10 (silent)
+  super + period            next workspace
+  super + comma             previous workspace
+  super + Tab               next workspace
+  super + shift + Tab       previous workspace
+  super + scroll            cycle workspaces
+  super + U                 toggle scratchpad (special workspace)
+  super + shift + U         send window to scratchpad
 
-WINDOWS
-  SUPER + Q / Shift + Q ..... close window
-  SUPER + Shift + Space ..... toggle floating
-  SUPER + F ................. fullscreen
-  SUPER + Alt + F .......... maximize
-  SUPER + P ................. pseudo-tile
-  SUPER + J ................. toggle split direction
-  SUPER + G ................. toggle group
+── 4. Layout & Tiling ────────────────────────────────────────────────────────
+  super + J                 toggle split direction
+  super + I                 add window to master
+  super + ctrl + Return     swap with master
 
-MASTER LAYOUT
-  SUPER + I ................. add to master
-  SUPER + Ctrl + Return ..... swap with master
+── 6. Multimedia & Hardware ──────────────────────────────────────────────────
+  XF86AudioRaiseVolume      volume up (wpctl +5%)
+  XF86AudioLowerVolume      volume down (wpctl -5%)
+  XF86AudioMute             toggle mute (wpctl)
+  XF86AudioPlay             play / pause (playerctl)
+  XF86AudioNext             next track (playerctl)
+  XF86AudioPrev             previous track (playerctl)
+  XF86MonBrightnessUp       brightness up (brightnessctl)
+  XF86MonBrightnessDown     brightness down (brightnessctl)
 
-FOCUS  (arrows)
-  SUPER + ←/→/↑/↓ ........... move focus
+── 7. Screenshots ────────────────────────────────────────────────────────────
+  Print                     region screenshot → clipboard (grim + slurp)
+  super + Print             full screen → clipboard (grim)
 
-MOVE / SWAP WINDOW
-  SUPER + Shift + ←/→/↑/↓ ... swap window in direction
-  SUPER + Ctrl + ←/→/↑/↓ .... move window into group in direction
-
-RESIZE
-  SUPER + Shift + H/L ....... shrink / grow width
-  SUPER + Shift + K/J ....... shrink / grow height
-
-WORKSPACES
-  SUPER + 1..0 .............. switch to workspace 1..10
-  SUPER + Ctrl + 1..0 ....... move window to workspace (follow)
-  SUPER + Shift + 1..0 ...... move window to workspace (silent)
-  SUPER + . / , ............. next / previous workspace
-  SUPER + Tab / Shift+Tab ... next / previous workspace
-  SUPER + scroll ............ cycle workspaces
-
-SCRATCHPAD
-  SUPER + U ................. toggle special workspace
-  SUPER + Shift + U ......... move window to scratchpad
-
-MOUSE
-  SUPER + Left-drag ......... move window
-  SUPER + Right-drag ........ resize window
-
-MEDIA / BRIGHTNESS  (function keys)
-  XF86Audio* ................ volume / play / next / prev
-  XF86MonBrightness* ........ brightness up / down
-
-SCREENSHOTS
-  Print .................... region screenshot → clipboard
-  SUPER + Print ............ full screen → clipboard
+── 8. System & Session ───────────────────────────────────────────────────────
+  super + X                 archlinux-logout (logout menu)
+  ctrl + alt + K            archlinux-logout (logout menu)
+  ctrl + alt + L            archlinux-logout --settings (logout settings)
+  super + shift + X         kiro-powermenu (power menu)
+  ctrl + alt + R            archlinux-betterlockscreen (lock screen)
+  super + Escape            hyprctl kill (kill mode)
+  super + ctrl + S          show keybindings
+  super + shift + R         reload Hyprland config

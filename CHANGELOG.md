@@ -18,6 +18,12 @@
   `CTRL + ALT + K` → archlinux-logout (was hyprlock), `SUPER + F9` → virt-manager (was
   lollypop). `SUPER + F1` deliberately kept on firefox (reference uses vivaldi).
 - **Deliberately dropped** the reference's `update-system` binds (not used in KIROTUX).
+- **Regenerated `keybindings.txt` via `/kiro-create-keybindings`** into the standard fixed
+  8-section Kiro layout (header + `── N. Title ──` sections), replacing the earlier
+  hand-authored box-drawing format, and emitted the matching `keybindings.html` +
+  `keybindings.pdf` cheat sheets via `~/.bin/kiro-keybindings-html.py`.
+- **Removed `SUPER + SHIFT + E`** (was a duplicate logout-menu chord; `SUPER + X` and
+  `CTRL + ALT + K` already cover logout) from both `hyprland.lua` and the regenerated viewer.
 
 ### Technical Details
 - Both `etc/skel/.config/hypr/hyprland.lua` and the sibling `keybindings.txt` were updated
@@ -34,6 +40,8 @@
 ### Files Modified
 - `etc/skel/.config/hypr/hyprland.lua`
 - `etc/skel/.config/hypr/keybindings.txt`
+- `etc/skel/.config/hypr/keybindings.html` (generated)
+- `etc/skel/.config/hypr/keybindings.pdf` (generated)
 
 ## 2026.06.28
 
