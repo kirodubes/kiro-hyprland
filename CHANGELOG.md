@@ -50,6 +50,7 @@
 - `etc/skel/.config/hypr/keybindings.txt`
 - `etc/skel/.config/hypr/keybindings.html` (generated)
 - `etc/skel/.config/hypr/keybindings.pdf` (generated)
+- `../KIROTUX-PKG-BUILD/kiro-hyprland/PKGBUILD` (added `kiro-keybindings` depend + pkgrel bump)
 
 ### Wayland lock screen — hyprlock wired to the betterlockscreen wallpaper
 

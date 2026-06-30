@@ -1,111 +1,121 @@
 ###############################################################################
 #  KEYBINDINGS — Hyprland
-#  Source: ~/.config/hypr/hyprland.lua
-#  Generated: 2026.06.29 by /kiro-create-keybindings — DO NOT EDIT BY HAND
+#  Source: etc/skel/.config/hypr/hyprland.lua
+#  Generated: 2026.06.30 by /kiro-keybindings-all — DO NOT EDIT BY HAND
 ###############################################################################
 
-── 1. Applications & Launchers ───────────────────────────────────────────────
-  super + Return            alacritty (terminal)
-  super + T                 alacritty (terminal)
-  super + shift + Return    thunar (file manager)
-  super + E                 code (editor)
-  super + D                 rofi drun (app launcher)
-  super + Space             rofi drun (app launcher)
-  super + shift + D         rofi run (run launcher)
-  super + R                 rofi-theme-selector
-  alt + R                   rofi-theme-selector
-  super + V                 pavucontrol (audio mixer)
-  super + O                 hyprpicker -a (colour picker)
-  ctrl + alt + A            alacritty-tweak-tool
-  ctrl + alt + Q            alacritty-tweak-tool
-  ctrl + alt + B            brave
-  ctrl + alt + C            chromium
-  ctrl + alt + G            chromium
-  ctrl + alt + D            obs (OBS Studio)
-  ctrl + alt + E            archlinux-tweak-tool (ATT)
-  ctrl + alt + F            firefox
-  ctrl + alt + H            hyprland-tweak-tool
-  ctrl + alt + I            kiro-iso-builder
-  ctrl + alt + M            mintstick (USB image writer)
-  ctrl + alt + O            opera
-  ctrl + alt + P            pamac-manager (package manager)
-  ctrl + alt + S            fish-tweak-tool
-  ctrl + alt + U            pavucontrol (audio mixer)
-  ctrl + alt + V            vivaldi
-  ctrl + alt + W            fastfetch-tweak-tool
-  ctrl + alt + Z            fastfetch-tweak-tool
-  ctrl + alt + Return       alacritty (terminal)
-  ctrl + alt + T            alacritty (terminal)
-  ctrl + alt + End          btop (system monitor)
-  ctrl + shift + Escape     btop (system monitor)
-  super + F1                firefox
-  super + F2                code (editor)
-  super + F3                inkscape
-  super + F4                gimp
-  super + F5                meld
-  super + F6                vlc
-  super + F7                virtualbox
-  super + F8                thunar (file manager)
-  super + F9                virt-manager
-  super + F10               spotify
-  super + F11               rofi drun (app launcher)
-  super + F12               rofi drun (app launcher)
+── 1. Applications & Launchers ────────────────────────────────────────────────
+  super + Return          Terminal
+  super + T               Terminal
+  super + shift + Return  File manager
+  super + E               Code editor
+  super + D               Launch apps
+  super + Space           Launch apps
+  super + shift + D       Run launcher
+  super + R               Theme selector
+  alt + R                 Theme selector
+  super + V               Volume control
+  super + O               Colour picker
+  ctrl + alt + A          Alacritty tweak tool
+  ctrl + alt + B          Brave
+  ctrl + alt + C          Chromium
+  ctrl + alt + D          OBS Studio
+  ctrl + alt + E          Tweak tool
+  ctrl + alt + F          Firefox
+  ctrl + alt + G          Chromium
+  ctrl + alt + H          Tweak tool
+  ctrl + alt + I          Kiro ISO builder
+  ctrl + alt + M          USB image writer
+  ctrl + alt + O          Opera
+  ctrl + alt + P          Package manager
+  ctrl + alt + Q          Alacritty tweak tool
+  ctrl + alt + Return     Terminal
+  ctrl + alt + T          Terminal
+  ctrl + alt + S          Tweak tool
+  ctrl + alt + U          Volume control
+  ctrl + alt + V          Vivaldi
+  ctrl + alt + W          Fastfetch tweak tool
+  ctrl + alt + Z          Fastfetch tweak tool
+  ctrl + alt + End        System monitor
+  ctrl + shift + Escape   System monitor
+  super + F1              Firefox
+  super + F2              Code editor
+  super + F3              Inkscape
+  super + F4              GIMP
+  super + F5              Meld
+  super + F6              VLC
+  super + F7              VirtualBox
+  super + F8              File manager
+  super + F9              Virt-manager
+  super + F10             Spotify
+  super + F11             Rofi drun
+  super + F12             Rofi drun
 
 ── 2. Window Management ───────────────────────────────────────────────────────
-  super + Q                 close focused window
-  super + shift + Q         close focused window
-  super + shift + Space     toggle floating
-  super + F                 toggle fullscreen
-  super + alt + F           maximize
-  super + P                 pseudo-tile
-  super + G                 toggle group
-  super + Left/Right/Up/Down       focus window in direction
-  super + shift + Left/Right/Up/Down   swap window in direction
-  super + ctrl + Left/Right/Up/Down    move window into group in direction
-  super + shift + H         shrink window width
-  super + shift + L         grow window width
-  super + shift + K         shrink window height
-  super + shift + J         grow window height
-  super + Left-drag         move window (mouse)
-  super + Right-drag        resize window (mouse)
+  super + Q               Close window
+  super + shift + Q       Close window
+  super + shift + Space   Toggle floating
+  super + F               Fullscreen
+  super + alt + F         Maximize
+  super + P               Pseudo-tile
+  super + left            Focus left
+  super + right           Focus right
+  super + up              Focus up
+  super + down            Focus down
+  super + shift + left    Swap left
+  super + shift + right   Swap right
+  super + shift + up      Swap up
+  super + shift + down    Swap down
+  super + shift + H       Shrink width
+  super + shift + L       Grow width
+  super + shift + K       Shrink height
+  super + shift + J       Grow height
+  super + left-click      Move window
+  super + right-click     Resize window
 
-── 3. Workspaces / Tags / Groups ─────────────────────────────────────────────
-  super + 1..0              switch to workspace 1–10
-  super + ctrl + 1..0       move window to workspace 1–10 (follow)
-  super + shift + 1..0      send window to workspace 1–10 (silent)
-  super + period            next workspace
-  super + comma             previous workspace
-  super + Tab               next workspace
-  super + shift + Tab       previous workspace
-  super + scroll            cycle workspaces
-  super + U                 toggle scratchpad (special workspace)
-  super + shift + U         send window to scratchpad
+── 3. Workspaces / Tags / Groups ──────────────────────────────────────────────
+  super + 1..0            Workspace 1..10  (AZERTY: same physical keys)
+  super + ctrl + 1..0     Move to workspace 1..10
+  super + shift + 1..0    Send to workspace 1..10
+  super + period          Next workspace
+  super + comma           Previous workspace
+  super + scroll down     Next workspace
+  super + scroll up       Previous workspace
+  super + Tab             Next workspace
+  super + shift + Tab     Previous workspace
+  super + U               Toggle scratchpad
+  super + shift + U       Send to scratchpad
+  super + G               Toggle group
+  super + ctrl + left     Into group left
+  super + ctrl + right    Into group right
+  super + ctrl + up       Into group up
+  super + ctrl + down     Into group down
 
-── 4. Layout & Tiling ────────────────────────────────────────────────────────
-  super + J                 toggle split direction
-  super + I                 add window to master
-  super + ctrl + Return     swap with master
+── 4. Layout & Tiling ─────────────────────────────────────────────────────────
+  super + J               Toggle split
+  super + I               Add master
+  super + ctrl + Return   Swap with master
 
-── 6. Multimedia & Hardware ──────────────────────────────────────────────────
-  XF86AudioRaiseVolume      volume up (wpctl +5%)
-  XF86AudioLowerVolume      volume down (wpctl -5%)
-  XF86AudioMute             toggle mute (wpctl)
-  XF86AudioPlay             play / pause (playerctl)
-  XF86AudioNext             next track (playerctl)
-  XF86AudioPrev             previous track (playerctl)
-  XF86MonBrightnessUp       brightness up (brightnessctl)
-  XF86MonBrightnessDown     brightness down (brightnessctl)
+── 6. Multimedia & Hardware ───────────────────────────────────────────────────
+  XF86AudioRaiseVolume    Volume up
+  XF86AudioLowerVolume    Volume down
+  XF86AudioMute           Mute
+  XF86AudioPlay           Play / pause
+  XF86AudioNext           Next track
+  XF86AudioPrev           Previous track
+  XF86MonBrightnessUp     Brightness up
+  XF86MonBrightnessDown   Brightness down
 
-── 7. Screenshots ────────────────────────────────────────────────────────────
-  Print                     region screenshot → clipboard (grim + slurp)
-  super + Print             full screen → clipboard (grim)
+── 7. Screenshots ─────────────────────────────────────────────────────────────
+  Print                   Screenshot region
+  super + Print           Screenshot screen
 
-── 8. System & Session ───────────────────────────────────────────────────────
-  super + X                 archlinux-logout (logout menu)
-  ctrl + alt + K            archlinux-logout (logout menu)
-  ctrl + alt + L            archlinux-logout --settings (logout settings)
-  super + shift + X         kiro-powermenu (power menu)
-  ctrl + alt + R            archlinux-betterlockscreen (set lockscreen wallpaper)
-  super + Escape            hyprctl kill (kill mode)
-  super + ctrl + S          show keybindings
-  super + shift + R         reload Hyprland config
+── 8. System & Session ────────────────────────────────────────────────────────
+  super + X               Logout menu
+  super + shift + X       Power menu
+  super + Escape          Kill mode
+  super + ctrl + S        Show keybindings
+  ctrl + alt + K          Logout menu
+  super + shift + R       Reload Hyprland
+  ctrl + alt + L          Logout settings
+  ctrl + alt + R          Lockscreen wallpaper
