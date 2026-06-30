@@ -1,5 +1,14 @@
 # Changelog
 
+## 2026.06.30
+
+### What Changed
+- **Adopted the shared `kiro-wayland-dotfiles` base** — mako, hyprlock, and the waybar
+  `colors.css`/`style.css` now come from that package instead of being shipped here (resolves the
+  file conflict with the other Wayland editions). kiro-hyprland now ships only
+  `waybar/config-hyprland.jsonc` and launches `env GTK_A11Y=none waybar -c` against it (the
+  GTK_A11Y flag also fixes the ~25s waybar login stall).
+
 ## 2026.06.29
 
 ### What Changed

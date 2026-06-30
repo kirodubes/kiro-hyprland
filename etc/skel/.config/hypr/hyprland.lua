@@ -187,7 +187,7 @@ on_start("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTO
 on_start("xdg-user-dirs-update")
 on_start("~/.config/hypr/scripts/import-gsettings.sh")   -- mirror GTK theme/icons/cursor/font into gsettings
 on_start("swaybg -m fill -i ~/.config/hypr/bg/kiro.jpg")
-on_start("waybar")
+on_start("env GTK_A11Y=none waybar -c ~/.config/waybar/config-hyprland.jsonc")
 on_start("mako")
 on_start("hypridle")
 -- Live ISO only: auto-launch the installer. archiso-gated; kiro_final strips this line on install.
