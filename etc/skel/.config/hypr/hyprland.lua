@@ -99,6 +99,11 @@ hl.config({
       color = "rgba(7aa2f7cc)",
       color_inactive = "rgba(00000000)",
     },
+    -- Dim unfocused windows a little for focus contrast; dim more behind an open scratchpad
+    -- so the popped-up window reads clearly on top.
+    dim_inactive = true,
+    dim_strength = 0.06,
+    dim_special = 0.2,
   },
 
   dwindle = {
@@ -151,12 +156,15 @@ hl.config({
 
 -- ── Animations (bezier curves + per-leaf, 0.53+ style) ─────────────────────
 hl.config({ animations = { enabled = true } })
-hl.curve("kiroEase", { type = "bezier", points = { { 0.05, 0.9 }, { 0.1, 1.05 } } })
-hl.animation({ leaf = "windows",    enabled = true, speed = 7,  bezier = "kiroEase" })
-hl.animation({ leaf = "windowsOut", enabled = true, speed = 7,  bezier = "default", style = "popin 80%" })
-hl.animation({ leaf = "border",     enabled = true, speed = 10, bezier = "default" })
-hl.animation({ leaf = "fade",       enabled = true, speed = 7,  bezier = "default" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 6,  bezier = "default" })
+hl.curve("kiroEase",      { type = "bezier", points = { { 0.05, 0.9 },  { 0.1, 1.05 } } })
+hl.curve("kiroSnap",      { type = "bezier", points = { { 0.16, 1 },    { 0.3, 1 } } })
+hl.curve("kiroOvershoot", { type = "bezier", points = { { 0.34, 1.56 }, { 0.64, 1 } } })
+hl.animation({ leaf = "windows",          enabled = true, speed = 7,  bezier = "kiroEase" })
+hl.animation({ leaf = "windowsOut",       enabled = true, speed = 7,  bezier = "default",       style = "popin 80%" })
+hl.animation({ leaf = "border",           enabled = true, speed = 10, bezier = "kiroSnap" })
+hl.animation({ leaf = "fade",             enabled = true, speed = 7,  bezier = "default" })
+hl.animation({ leaf = "workspaces",       enabled = true, speed = 6,  bezier = "kiroSnap",      style = "slidefade 15%" })
+hl.animation({ leaf = "specialWorkspace", enabled = true, speed = 5,  bezier = "kiroOvershoot",  style = "slidevert" })
 
 -- ── Window rules (0.53+ unified hl.window_rule) ────────────────────────────
 -- ArcoLinux windowrulev2 lines migrated to the table form.
@@ -174,6 +182,17 @@ hl.window_rule({ match = { class = "(Alacritty|kitty)" }, scroll_touchpad = 1.5 
 hl.window_rule({ match = { class = "Alacritty" }, opacity = "0.90 0.85" })
 -- Lock the pointer inside an app — handy for games / remote desktop (0.55+):
 -- hl.window_rule({ match = { class = "^(steam_app_.*)$" }, confine_pointer = true })
+
+-- ── Layer rules (blur the shell layers, not just windows) ──────────────────
+-- Waybar/rofi/mako sit above the compositor's blur pass by default, so without an explicit
+-- layer_rule they render flat against a blurred desktop. ignore_alpha lets the blur show through
+-- each surface's own semi-transparent background instead of blurring it as a solid rect.
+hl.layer_rule({ match = { namespace = "waybar" }, blur = true })
+hl.layer_rule({ match = { namespace = "waybar" }, ignore_alpha = 0.6 })
+hl.layer_rule({ match = { namespace = "rofi" }, blur = true })
+hl.layer_rule({ match = { namespace = "rofi" }, ignore_alpha = 0.6 })
+hl.layer_rule({ match = { namespace = "notifications" }, blur = true })
+hl.layer_rule({ match = { namespace = "notifications" }, ignore_alpha = 0.6 })
 
 -- ── Autostart ──────────────────────────────────────────────────────────────
 -- exec-once equivalent: run on the hyprland.start event.
@@ -338,6 +357,18 @@ bind("XF86AudioNext",         "Next track",     run("playerctl next"))
 bind("XF86AudioPrev",         "Previous track", run("playerctl previous"))
 bind("XF86MonBrightnessUp",   "Brightness up",  run("brightnessctl set 5%+"))
 bind("XF86MonBrightnessDown", "Brightness down",run("brightnessctl set 5%-"))
+
+-- Wallpaper (Variety) — ohmychadwm's binding scheme, ported. No recolor combos here:
+-- this edition keeps static Tokyo Night colours (no pywal), so there's nothing to recolor.
+bind("ALT + N",     "Next wallpaper",     run("variety --next"))
+bind("ALT + Right", "Next wallpaper",     run("variety --next"))
+bind("ALT + P",     "Previous wallpaper", run("variety --previous"))
+bind("ALT + Left",  "Previous wallpaper", run("variety --previous"))
+bind("ALT + T",     "Trash wallpaper",    run("variety --trash"))
+bind("ALT + F",     "Favorite wallpaper", run("variety --favorite"))
+bind("ALT + Up",    "Pause wallpaper",    run("variety --pause"))
+bind("ALT + Down",  "Resume wallpaper",   run("variety --resume"))
+bind("ALT + W",     "Wallpaper selector", run("variety --selector"))
 
 -- Screenshots
 bind("PRINT",           "Screenshot region", run('grim -g "$(slurp)" - | wl-copy'))

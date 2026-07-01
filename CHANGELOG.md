@@ -1,5 +1,27 @@
 # Changelog
 
+## 2026.07.01
+
+### What Changed
+- **Added shell-layer blur, richer animation curves, and inactive-window dimming.** Blur/rounding
+  previously only applied to windows — waybar, rofi, and mako notifications rendered flat against
+  the blurred desktop. Added `hl.layer_rule` blur + `ignore_alpha` for all three. Added two new
+  named bezier curves (`kiroSnap`, `kiroOvershoot`) and applied them to the border, workspace
+  (`slidefade 15%`), and a new `specialWorkspace` (`slidevert`) animation for the scratchpad
+  toggle, which previously had no animation entry at all. Added `dim_inactive`/`dim_strength`/
+  `dim_special` to `decoration` for focus contrast, kept modest (0.06/0.2) to stay cheap on the
+  VM software-render path this config also targets.
+
+### Technical Details
+- Layer-rule blur syntax and `dim_inactive`/`dim_special` placement verified against local
+  reference Lua configs (`~/Public/dots-hyprland`, `~/Public/ml4w-dotfiles`) since this repo had
+  no prior `layer_rule` usage to copy from.
+- Syntax-checked with `lua5.4 -e 'loadfile(...)'` (parse-only, no `hl.*` runtime available
+  outside the compositor).
+
+### Files Modified
+- [etc/skel/.config/hypr/hyprland.lua](etc/skel/.config/hypr/hyprland.lua)
+
 ## 2026.06.30
 
 ### What Changed
