@@ -12,15 +12,27 @@
   `dim_special` to `decoration` for focus contrast, kept modest (0.06/0.2) to stay cheap on the
   VM software-render path this config also targets.
 
+- **Added Variety wallpaper-rotator keybinds.** `variety` already autostarted (`on_start("variety")`)
+  but its keybinds were dropped during the ohmychadwm-alignment pass and never restored. Ported the
+  ohmychadwm `keybindings.txt` scheme (alt+N/P/T/F/arrows/Up/Down/W): next/previous/trash/
+  favorite/pause/resume/selector. No pywal-recolor combos here — this edition keeps static Tokyo
+  Night colours, so there's nothing to recolor. `variety` + `kiro-variety-config` added to the
+  package's `depends=()` (was autostarted but never declared as a dependency — latent gap on a
+  fresh install).
+
 ### Technical Details
 - Layer-rule blur syntax and `dim_inactive`/`dim_special` placement verified against local
   reference Lua configs (`~/Public/dots-hyprland`, `~/Public/ml4w-dotfiles`) since this repo had
   no prior `layer_rule` usage to copy from.
 - Syntax-checked with `lua5.4 -e 'loadfile(...)'` (parse-only, no `hl.*` runtime available
   outside the compositor).
+- Verified no existing bare-Alt binds collided with alt+n/p/t/f/w/arrows before adding (grepped
+  all 7 Wayland TWM repos; only CTRL+ALT combos existed on those letters).
 
 ### Files Modified
 - [etc/skel/.config/hypr/hyprland.lua](etc/skel/.config/hypr/hyprland.lua)
+- [etc/skel/.config/hypr/keybindings.txt](etc/skel/.config/hypr/keybindings.txt)
+- [../KIROTUX-PKG-BUILD/kiro-hyprland/PKGBUILD](../KIROTUX-PKG-BUILD/kiro-hyprland/PKGBUILD)
 
 ## 2026.06.30
 
