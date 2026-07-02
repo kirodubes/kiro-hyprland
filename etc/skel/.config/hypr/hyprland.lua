@@ -214,7 +214,7 @@ on_start("hypridle")
 -- need a real shell to be interpreted; a bare string would just try to exec a binary named "[".
 on_start("sh -c '[ -d /run/archiso/bootmnt ] && calamares_polkit -d -style kvantum'")
 on_start("nm-applet --indicator")
-on_start("variety")            -- wallpaper rotator (configured by kiro-variety-config)
+-- on_start("variety")            -- wallpaper rotator (configured by kiro-variety-config)
 -- on_start("pamac-manager")      -- software manager (pamac-aur)
 -- on_start("blueman-applet")
 
