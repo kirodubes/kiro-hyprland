@@ -1,5 +1,21 @@
 # Changelog
 
+## 2026.07.04
+
+### Silence the new "started without start-hyprland" banner
+
+### What Changed
+- **Added `misc.disable_watchdog_warning = true` to `hyprland.lua`.** Current
+  Hyprland ships a `start-hyprland` wrapper that launches the compositor with a
+  crash-recovery watchdog fd (`--watchdog-fd`); exec'ing `Hyprland` directly (as
+  our `--config`-based session launch does, to keep editions namespaced and
+  co-installable) triggers a persistent on-screen banner. The config knob is
+  Hyprland's intended escape hatch for launchers like ours — no launch-path
+  change needed.
+
+### Files Modified
+- `etc/skel/.config/hypr/hyprland.lua`
+
 ## 2026.07.02
 
 ### What Changed
