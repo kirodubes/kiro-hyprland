@@ -2,7 +2,7 @@
 -- Kiro Hyprland baseline config  (hyprland.lua)
 -- ════════════════════════════════════════════════════════════════════════
 -- Target: Hyprland 0.55+ (Lua config format; hyprlang/.conf deprecated in 0.55).
--- Lives at: ~/.config/hypr/hyprland.lua
+-- Lives at: ~/.config/kiro-hyprland/hyprland.lua
 --
 -- Modeled on Omarchy's current Lua config (the modern mainline reference) but
 -- carrying Kiro/ArcoLinux's SUPER-based keybind philosophy. Uses ONLY the native
@@ -205,8 +205,8 @@ on_start("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTO
 -- Create the XDG user dirs (Documents, Music, Pictures, …) on first login. This config doesn't
 -- process /etc/xdg/autostart, so the xdg-user-dirs autostart never fires on its own. Idempotent.
 on_start("xdg-user-dirs-update")
-on_start("~/.config/hypr/scripts/import-gsettings.sh")   -- mirror GTK theme/icons/cursor/font into gsettings
-on_start("swaybg -m fill -i ~/.config/hypr/bg/kiro.jpg")
+on_start("~/.config/kiro-hyprland/scripts/import-gsettings.sh")   -- mirror GTK theme/icons/cursor/font into gsettings
+on_start("swaybg -m fill -i ~/.config/kiro-hyprland/bg/kiro.jpg")
 on_start("env GTK_A11Y=none waybar -c ~/.config/waybar/config-hyprland.jsonc")
 on_start("mako")
 on_start("hypridle")
