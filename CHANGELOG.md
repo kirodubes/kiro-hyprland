@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026.07.17
+
+### Restore missing waybar config-hyprland.jsonc
+
+**What Changed**
+- Restored `etc/skel/.config/waybar/config-hyprland.jsonc`, the waybar config `hyprland.lua` launches
+  (`waybar -c ~/.config/waybar/config-hyprland.jsonc`). It had gone missing, so base Hyprland's bar
+  failed to start.
+
+**Technical Details**
+- The file was accidentally deleted in commit `d64fede` (the `hypr/` → `kiro-hyprland/` namespacing
+  rename) — not moved into `kiro-wayland-dotfiles` like the shared `colors.css`/`style.css`, just
+  dropped. Recovered verbatim from `d64fede^` (43 lines, `hyprland/workspaces` + `hyprland/window`
+  modules). The existing `cp -a etc` in the PKGBUILD ships it and golden-copies it to
+  `/usr/share/kiro/kiro-hyprland/` with no PKGBUILD change needed.
+
+**Files Modified**
+- `etc/skel/.config/waybar/config-hyprland.jsonc`
+
 ## 2026.07.07
 
 ### Keyboard: US default + Alt+Shift layout toggle
