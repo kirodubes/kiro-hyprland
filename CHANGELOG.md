@@ -1,5 +1,28 @@
 # Changelog
 
+## 2026.07.19
+
+### Corrected leftover Noctalia wording in the hide-upstream-session helper
+
+**What Changed**
+- `kiro-hyprland-hide-upstream-session` and its pacman hook still carried text copied from the
+  noctalia fork: the header claimed the supported entry was "Kiro Hyprland Noctalia" and that
+  the edition reads `~/.config/kiro-hyprland-noctalia/`. Base Hyprland reads
+  `~/.config/kiro-hyprland/`. Comments and the hook's progress line only — no behaviour change.
+
+**Technical Details**
+- Surfaced while tracing why the Hyprland ISO booted into a config-less Hyprland; the real bug
+  was ISO-side (autologin pinned to upstream's `hyprland` session instead of `kiro-hyprland`),
+  but the misleading wording here made the helper read as if it belonged to another edition.
+- The helper itself is correct: it stamps `NoDisplay=true` on upstream's `hyprland.desktop` and
+  `hyprland-uwsm.desktop`. Note that `NoDisplay` only hides them from the greeter list — a
+  display manager can still autologin into them by id, which is exactly how the ISO bug slipped
+  through.
+
+**Files Modified**
+- `usr/bin/kiro-hyprland-hide-upstream-session`
+- `usr/share/libalpm/hooks/kiro-hyprland-hide-upstream-session.hook`
+
 ## 2026.07.17
 
 ### Restore missing waybar config-hyprland.jsonc

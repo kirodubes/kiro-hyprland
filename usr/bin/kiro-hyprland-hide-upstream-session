@@ -7,11 +7,11 @@
 #
 # Purpose:
 #   Hide upstream Hyprland session so only Kiro's own "Kiro
-#   Hyprland Noctalia" entry is offered in the display manager. Stamps NoDisplay=true
+#   Hyprland" entry is offered in the display manager. Stamps NoDisplay=true
 #   onto /usr/share/wayland-sessions/hyprland.desktop (owned by the hyprland
 #   package) when it is not already present.
 # Why:
-#   The Kiro edition reads ~/.config/kiro-hyprland-noctalia/
+#   The Kiro edition reads ~/.config/kiro-hyprland/
 #####################################################################
 
 desktop=/usr/share/wayland-sessions/hyprland.desktop

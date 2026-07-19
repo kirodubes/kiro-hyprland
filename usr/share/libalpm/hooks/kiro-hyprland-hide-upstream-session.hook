@@ -9,6 +9,6 @@ Target = usr/share/wayland-sessions/hyprland.desktop
 Target = usr/share/wayland-sessions/hyprland-uwsm.desktop
 
 [Action]
-Description = Hiding upstream Hyprland session (Kiro Hyprland Noctalia is the supported entry)...
+Description = Hiding upstream Hyprland session (Kiro Hyprland is the supported entry)...
 When = PostTransaction
 Exec = /usr/bin/kiro-hyprland-hide-upstream-session
