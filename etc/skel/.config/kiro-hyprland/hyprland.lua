@@ -372,5 +372,6 @@ bind("ALT + Down",  "Resume wallpaper",   run("variety --resume"))
 bind("ALT + W",     "Wallpaper selector", run("variety --selector"))
 
 -- Screenshots
-bind("PRINT",           "Screenshot region", run('grim -g "$(slurp)" - | wl-copy'))
-bind(mod .. " + PRINT", "Screenshot screen", run("grim - | wl-copy"))
+-- kiro-screenshot (kiro-wayland-dotfiles): PNG in ~/Pictures/Screenshots + clipboard + notify.
+bind("PRINT",           "Screenshot region", run("kiro-screenshot region"))
+bind(mod .. " + PRINT", "Screenshot screen", run("kiro-screenshot screen"))
