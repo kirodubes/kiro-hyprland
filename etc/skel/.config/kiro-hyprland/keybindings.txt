@@ -1,6 +1,6 @@
 ###############################################################################
 #  KEYBINDINGS — Hyprland
-#  Source: etc/skel/.config/hypr/hyprland.lua
+#  Source: etc/skel/.config/kiro-hyprland/hyprland.lua
 #  Generated: 2026.06.30
 #  Reference for the default bindings. Changed yours? Edit this file to match.
 ###############################################################################

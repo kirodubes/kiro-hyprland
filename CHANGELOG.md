@@ -3,6 +3,7 @@
 ## 2026.09.27
 
 ### What Changed
+- Fixed the `keybindings.txt` `Source:` line: it pointed at the old `.config/hypr/hyprland.lua`; the config lives in `.config/kiro-hyprland/`.
 - Reworded the `keybindings.txt` header: dropped "DO NOT EDIT BY HAND" and the generator name, added a line telling users it lists the default bindings and they can edit it to match their own. A user changed a binding, expected the file to update itself, and went looking for a generator that isn't part of Kiro.
 
 ### Technical Details
