@@ -24,7 +24,7 @@
   ctrl + alt + E          Tweak tool
   ctrl + alt + F          Firefox
   ctrl + alt + G          Chromium
-  ctrl + alt + H          Tweak tool
+  ctrl + alt + H          Kirotux Hyprland Premium
   ctrl + alt + I          Kiro ISO builder
   ctrl + alt + M          USB image writer
   ctrl + alt + O          Opera
