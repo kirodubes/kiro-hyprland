@@ -26,6 +26,18 @@ local powermenu = "kiro-powermenu"
 local lock     = "hyprlock"
 local keybindings = "kiro-keybindings"   -- searchable PySide6/QML cheatsheet (auto-detects Hyprland)
 
+-- Default apps picked in Kirotux Hyprland Premium (kirotux_apps.lua in this folder), else the ones above.
+-- Read here, before any key is bound, so the keys below open the chosen apps.
+do
+  local ok, apps = pcall(require, "kirotux_apps")
+  if ok and type(apps) == "table" then
+    term = apps.terminal or term
+    files = apps.files or files
+    browser = apps.browser or browser
+    editor = apps.editor or editor
+  end
+end
+
 -- ── Environment ──────────────────────────────────────────────────────────
 -- Force Wayland across toolkits; advertise the session to portals/screenshare.
 hl.env("XCURSOR_SIZE", "12")
@@ -232,7 +244,8 @@ hl.on("hyprland.start", function()
 end)
 on_start("env GTK_A11Y=none waybar -c ~/.config/waybar/config-hyprland.jsonc")
 on_start("mako")
-on_start("hypridle")
+-- Kirotux Hyprland Premium's Power page runs its own hypridle (KIROTUX_IDLE, set in appearance.lua).
+hl.on("hyprland.start", function() if not KIROTUX_IDLE then hl.exec_cmd("hypridle") end end)
 -- Live ISO only: auto-launch the installer. archiso-gated; kiro_final strips this line on install.
 -- Wrapped in `sh -c` because hl.exec_cmd execs argv directly (no shell) — the `[ ]` test and `&&`
 -- need a real shell to be interpreted; a bare string would just try to exec a binary named "[".
@@ -300,8 +313,8 @@ bind("CTRL + ALT + END",     "System monitor",  run("alacritty --class btop -e b
 bind("CTRL + SHIFT + Escape","System monitor",  run("alacritty --class btop -e btop"))
 
 -- Function keys (Kiro scheme)
-bind(mod .. " + F1",  "Firefox",      run("firefox"))
-bind(mod .. " + F2",  "Code editor",  run("code"))
+bind(mod .. " + F1",  "Browser",      run(browser))
+bind(mod .. " + F2",  "Code editor",  run(editor))
 bind(mod .. " + F3",  "Inkscape",     run("inkscape"))
 bind(mod .. " + F4",  "GIMP",         run("gimp"))
 bind(mod .. " + F5",  "Meld",         run("meld"))
