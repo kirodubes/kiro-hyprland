@@ -30,6 +30,10 @@
   they follow the chosen apps too. Ctrl+Alt+F stays Firefox, like every Ctrl+Alt+letter key.
 - **hypridle:** started only when `KIROTUX_IDLE` is not set. The app's Power page runs its own hypridle (with its
   own config: the shared `hypridle.conf` turns screens off with `wlr-randr`, which is not installed).
+- **The Qt style variables now come from this config**, not from `/etc/environment`: the Wayland ISOs keep only
+  `EDITOR` there from now on (`GTK_THEME` and `BROWSER` caused trouble: transparent GTK 4 windows, a browser default
+  that couldn't be changed). `QT_STYLE_OVERRIDE=kvantum` is set with `hl.env`, next to `QT_QPA_PLATFORMTHEME`.
+- kiro-hyprland also gets `hl.env("QT_QPA_PLATFORMTHEME", "gtk3")` (the other editions already had it).
 
 ### Technical Details
 - Added after `kb_options`. Hyprland's default (`false`) resolves symbol binds against the first layout in `kb_layout`.
@@ -50,6 +54,8 @@
   opens; DMS shows the notification, text fits). `keybindings.txt` says it comes with the KIROTUX ISOs.
 - `do local ok, apps = pcall(require, "kirotux_apps") ... end` after `local keybindings`; a missing file is silent.
   Tested on the QEMU dms install: Hyprland picked up `terminal = "alacritty", editor = "/usr/bin/subl"`, no errors.
+- `hl.env("QT_STYLE_OVERRIDE", "kvantum")` after the `QT_QPA_PLATFORM` line. Tested on the QEMU dms install: a
+  program started in the session gets both Qt variables from Hyprland; no config errors.
 
 ### Files Modified
 - `etc/skel/.config/kiro-hyprland/hyprland.lua`
