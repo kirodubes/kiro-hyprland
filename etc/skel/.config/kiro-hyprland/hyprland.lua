@@ -60,6 +60,22 @@ hl.env("GDK_SCALE", "1")
 local active_border   = { colors = { "rgba(7aa2f7aa)", "rgba(c4a7e7aa)" }, angle = 45 }
 local inactive_border = "rgba(414868aa)"
 
+-- Keyboard: the layout picked in the installer (Calamares writes XKBLAYOUT / XKBVARIANT to
+-- /etc/vconsole.conf), else the fallback below. Kirotux Hyprland Premium can override it in appearance.lua.
+local function installer_keyboard(fallback)
+  local f = io.open("/etc/vconsole.conf")
+  if not f then return fallback, "" end
+  local layout, variant
+  for line in f:lines() do
+    layout = layout or line:match('^XKBLAYOUT="?([^"]*)"?$')
+    variant = variant or line:match('^XKBVARIANT="?([^"]*)"?$')
+  end
+  f:close()
+  if not layout or layout == "" then return fallback, "" end
+  return layout, variant or ""
+end
+local kb_layout, kb_variant = installer_keyboard("us,be")
+
 hl.config({
   general = {
     gaps_in = 3,
@@ -117,7 +133,8 @@ hl.config({
   },
 
   input = {
-    kb_layout = "us,be",                            -- US + Belgian
+    kb_layout = kb_layout,                          -- installer choice, else US + Belgian
+    kb_variant = kb_variant,
     kb_options = "grp:alt_shift_toggle,compose:caps",  -- Alt+Shift switches layouts; Caps = Compose
     resolve_binds_by_sym = true,                    -- binds follow the active layout (Super+A = the A you see)
     repeat_rate = 40,
@@ -207,7 +224,12 @@ on_start("systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTO
 -- process /etc/xdg/autostart, so the xdg-user-dirs autostart never fires on its own. Idempotent.
 on_start("xdg-user-dirs-update")
 on_start("~/.config/kiro-hyprland/scripts/import-gsettings.sh")   -- mirror GTK theme/icons/cursor/font into gsettings
-on_start("swaybg -m fill -i ~/.config/kiro-hyprland/bg/kiro.jpg")
+-- Wallpaper: the one picked in Kirotux Hyprland Premium (KIROTUX_WALLPAPER in appearance.lua, which is loaded
+-- before hyprland.start fires), else the Kiro wallpaper. exec_cmd runs through a shell: quote the path.
+hl.on("hyprland.start", function()
+  local wp = KIROTUX_WALLPAPER or (os.getenv("HOME") .. "/.config/kiro-hyprland/bg/kiro.jpg")
+  hl.exec_cmd("swaybg -m fill -i '" .. (wp:gsub("'", "'\\''")) .. "'")
+end)
 on_start("env GTK_A11Y=none waybar -c ~/.config/waybar/config-hyprland.jsonc")
 on_start("mako")
 on_start("hypridle")
