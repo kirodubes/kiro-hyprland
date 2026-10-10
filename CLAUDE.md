@@ -14,16 +14,16 @@ Hyprland desktop config for the **KIROTUX Hyprland edition** (premium, private).
 
 ## Build / test flow
 - This repo is the **source of truth** for the config (the `etc/skel/.config/` tree). It is
-  delivered as a **package**, not a skel-burn: `../KIROTUX-PKG-BUILD/kiro-hyprland/build.sh`
+  delivered as a **package**, not a skel-burn: `~/KIRO-PKG-BUILD-APPS/kiro-hyprland/build.sh`
   packages this tree (`makepkg -f`, signs, `repo-add`) into `~/KIROTUX/kirotux-repo/`, and the
   ISO installs `kiro-hyprland` from the local `[kirotux-repo]`. The old skel-burn approach is
   gone — the ISO skel now carries only `.bashrc`.
 - After editing the config here: rebuild the package (run the recipe above), then build the ISO
-  via `kiro-iso-hyprland/build-scripts/build-the-iso.sh` to test a fresh install.
+  via `kirotux-iso-hyprland/build-scripts/build-the-iso.sh` to test a fresh install.
 - `kiro-hyprland` is listed (commented as a template) inside the `### >>> EDITION-BLOCK hyprland`
   block in `packages.x86_64`; `apply_editions()` uncomments it at build time because
   `build.conf` sets `editions="hyprland"`.
-- See [../CLAUDE.md](../CLAUDE.md) for the full KIROTUX delivery architecture and the relation
+- See [KIROTUX/CLAUDE.md](../../KIROTUX/CLAUDE.md) for the full KIROTUX delivery architecture and the relation
   to the other repos.
 
 ## Patterns / gotchas
