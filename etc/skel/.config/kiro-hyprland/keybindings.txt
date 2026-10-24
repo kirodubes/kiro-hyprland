@@ -9,13 +9,19 @@
   super + Return          Terminal
   super + T               Terminal
   super + shift + Return  File manager
+  super + shift + F       File manager
   super + E               Code editor
+  super + shift + N       Code editor
+  super + shift + B       Browser
+  super + shift + M       Spotify
+  super + ctrl + shift + A  AI agent (claude in your terminal)
   super + D               Launch apps
   super + Space           Launch apps
   super + shift + D       Run launcher
   super + R               Theme selector
   alt + R                 Theme selector
   super + V               Volume control
+  super + ctrl + A        Volume control
   super + O               Colour picker
   ctrl + alt + A          Alacritty tweak tool
   ctrl + alt + B          Brave
@@ -100,7 +106,10 @@
 ── 6. Multimedia & Hardware ───────────────────────────────────────────────────
   XF86AudioRaiseVolume    Volume up
   XF86AudioLowerVolume    Volume down
+  alt + XF86AudioRaiseVolume  Volume up 1%
+  alt + XF86AudioLowerVolume  Volume down 1%
   XF86AudioMute           Mute
+  XF86AudioMicMute        Mic mute
   XF86AudioPlay           Play / pause
   XF86AudioNext           Next track
   XF86AudioPrev           Previous track
@@ -130,8 +139,10 @@
 ── 8. System & Session ────────────────────────────────────────────────────────
   super + X               Logout menu
   super + shift + X       Power menu
+  super + ctrl + L        Lock screen (hyprlock)
   super + Escape          Kill mode
   super + ctrl + S        Show keybindings
+  super + K               Show keybindings
   ctrl + alt + K          Logout menu
   super + shift + R       Reload Hyprland
   ctrl + alt + L          Logout settings
