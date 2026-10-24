@@ -3,9 +3,9 @@
 ## Overview
 Hyprland desktop config for the **KIROTUX Hyprland edition** (premium, private).
 
-## Privacy — CRITICAL
-- **Private. Never publish or push public.** Part of the KIROTUX monetization plan; kept
-  hidden until sold. See the global memory `hyprland-monetize-private`.
+## Public code, paid ISO
+- **The repo is public** (ADR-019, 2026-10-04): the edition code stays Kiro's and open; what is
+  sold is the assembled KIROTUX ISO. See the global memory `hyprland-monetize-private`.
 - This edition is **separate from the free Kiro ISO** and **never goes into KIB** (the
   Kiro ISO Builder / public edition-block system). It is built standalone.
 

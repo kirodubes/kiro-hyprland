@@ -9,9 +9,12 @@
 - `exec uwsm start -- Hyprland --config …` → `exec uwsm start -e -D Hyprland -- start-hyprland -- --config …`. `start-hyprland` passes everything after `--` to Hyprland and adds `--watchdog-fd`.
 - `-e -D Hyprland` keeps `XDG_CURRENT_DESKTOP=Hyprland`, so xdg-desktop-portal still picks the Hyprland backend.
 - The uwsm unit is now `wayland-wm@start\x2dhyprland.service` instead of `wayland-wm@Hyprland.service`; nothing in this package refers to the old name.
+- `CLAUDE.md`: the "Private. Never publish or push public" section was outdated (the repo has been public since
+  ADR-019, 2026-10-04: the code stays open, the KIROTUX ISO is what is sold) and now says so.
 
 ### Files Modified
 - `usr/bin/kiro-hyprland-session`
+- `CLAUDE.md`
 - `CHANGELOG.md`
 
 ## 2026.10.23
